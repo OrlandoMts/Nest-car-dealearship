@@ -7,9 +7,9 @@ import { CarItf } from './interfaces/car.interface';
 @Injectable()
 export class CarsService {
   private _cars: Array<CarItf> = [
-    { id: uuidv4(), brand: 'NISSAN', model: 'Sentra' },
+    /* { id: uuidv4(), brand: 'NISSAN', model: 'Sentra' },
     { id: uuidv4(), brand: 'BMW', model: 'M3' },
-    { id: uuidv4(), brand: 'TOYOTA', model: 'Rav4' },
+    { id: uuidv4(), brand: 'TOYOTA', model: 'Rav4' }, */
   ];
 
   get cars() {
@@ -50,5 +50,9 @@ export class CarsService {
   delete(id: string) {
     this.findOneById(id);
     this._cars = this._cars.filter(car => car.id !== id);
+  }
+
+  fillDataFromSeed(data: Array<CarItf>) {
+    this._cars = data;
   }
 }
